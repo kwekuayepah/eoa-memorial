@@ -89,6 +89,19 @@ export function Navbar({
       >
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
+            {/* Mobile Menu Button (Left) */}
+            <button
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
+              className="md:hidden"
+              aria-label="Toggle menu"
+            >
+              {isMobileOpen ? (
+                <X className="h-6 w-6 text-text" />
+              ) : (
+                <Menu className="h-6 w-6 text-text" />
+              )}
+            </button>
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex md:items-center md:gap-8">
               {navLinks.map((link) => (
@@ -117,18 +130,10 @@ export function Navbar({
               <ThemeToggle />
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="md:hidden"
-              aria-label="Toggle menu"
-            >
-              {isMobileOpen ? (
-                <X className="h-6 w-6 text-text" />
-              ) : (
-                <Menu className="h-6 w-6 text-text" />
-              )}
-            </button>
+            {/* Mobile Theme Toggle (Right) */}
+            <div className="md:hidden">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </nav>
@@ -183,14 +188,6 @@ export function Navbar({
                     {link.label}
                   </button>
                 ))}
-                <div className="border-t border-border pt-4">
-                  <div className="flex items-center justify-between pl-4">
-                    <span className="font-sans text-base font-medium text-text-muted">
-                      Theme
-                    </span>
-                    <ThemeToggle />
-                  </div>
-                </div>
               </div>
             </motion.div>
           </>
