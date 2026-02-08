@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Backgrounds */
+  --color-bg: #fffdf9;
+  --color-bg-alt: #fff8f0;
+  --color-bg-card: #ffffff;
+  --color-bg-hero-overlay: rgba(30, 20, 10, 0.55);
+
+  /* Gold tones (primary accent) */
+  --color-gold: #c5a355;
+  --color-gold-light: #e8d5a3;
+  --color-gold-dark: #8b7235;
+  --color-gold-muted: #d4c08e;
+
+  /* Red/Rose tones (secondary accent — from flowers) */
+  --color-red: #b83a3a;
+  --color-red-light: #d4736c;
+  --color-red-muted: #e8b4b0;
+
+  /* Text */
+  --color-text: #2a2118;
+  --color-text-muted: #6b5d4f;
+  --color-text-light: #9b8e80;
+
+  /* Borders & Dividers */
+  --color-border: #e8dfd3;
+  --color-border-gold: #d4c08e;
+
+  /* Functional */
+  --color-success: #5a8a5c;
+  --color-error: #c0392b;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-bg font-sans text-text antialiased;
+  }
+}
