@@ -19,7 +19,7 @@ export function SectionHeading({
       className={cn("mb-12", { "text-center": align === "center" }, className)}
       {...props}
     >
-      <h2 className="font-serif text-3xl font-semibold text-text md:text-4xl">
+      <h2 className="font-serif text-3xl font-semibold text-text dark:text-gold md:text-4xl">
         {title}
       </h2>
       {subtitle && (

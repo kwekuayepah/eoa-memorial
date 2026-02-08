@@ -80,7 +80,7 @@ export function TributeWall() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="mb-8 font-serif text-3xl font-semibold text-text md:text-4xl">
+          <h2 className="mb-8 font-serif text-3xl font-semibold text-text dark:text-gold md:text-4xl">
             Tributes & Condolences
           </h2>
 
@@ -100,7 +100,7 @@ export function TributeWall() {
                 {/* Header */}
                 <div className="mb-4 flex items-start justify-between gap-4">
                   <div className="flex-1">
-                    <h3 className="font-serif text-lg font-semibold text-text">
+                    <h3 className="font-serif text-lg font-semibold text-text dark:text-gold">
                       {tribute.name}
                     </h3>
                     {tribute.relationship && (

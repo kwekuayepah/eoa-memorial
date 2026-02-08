@@ -107,7 +107,7 @@ export function Hero() {
         {/* Name */}
         <motion.h1
           variants={prefersReducedMotion ? {} : fadeUp}
-          className="font-serif text-5xl font-bold text-text md:text-7xl"
+          className="font-serif text-5xl font-bold text-text dark:text-gold md:text-7xl"
         >
           {siteConfig.name}
         </motion.h1>

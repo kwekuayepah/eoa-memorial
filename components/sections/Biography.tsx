@@ -60,7 +60,7 @@ function BiographyCard({
 
       {/* Card */}
       <div className="flex-1 rounded-lg border-l-4 border-gold bg-bg-card p-6 shadow-sm">
-        <h3 className="mb-3 font-serif text-xl font-semibold text-text md:text-2xl">
+        <h3 className="mb-3 font-serif text-xl font-semibold text-text dark:text-gold md:text-2xl">
           {entry.title}
         </h3>
         <p className="font-sans text-base leading-relaxed text-text-muted">

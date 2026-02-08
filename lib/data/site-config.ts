@@ -3,9 +3,9 @@ export const siteConfig = {
   name: "Edward Owusu-Agyei",
   nameShort: "Edward",
   title: "Celebration of Life",
-  birthDate: "1948-08-19",
+  birthDate: "1948-08-16",
   deathDate: "2026-01-03",
-  birthDateDisplay: "19th August 1948",
+  birthDateDisplay: "16th August 1948",
   deathDateDisplay: "3rd January 2026",
 
   // Scripture

@@ -51,12 +51,20 @@ function CountdownBox({ label, value }: { label: string; value: number }) {
 }
 
 export function Countdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(
-    calculateTimeLeft(siteConfig.serviceDate)
-  );
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
   const [hasPassed, setHasPassed] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    // Calculate initial time on client only
+    const initialTimeLeft = calculateTimeLeft(siteConfig.serviceDate);
+    if (initialTimeLeft === null) {
+      setHasPassed(true);
+    } else {
+      setTimeLeft(initialTimeLeft);
+    }
+
     const timer = setInterval(() => {
       const newTimeLeft = calculateTimeLeft(siteConfig.serviceDate);
       if (newTimeLeft === null) {
@@ -83,7 +91,7 @@ export function Countdown() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-serif text-3xl font-semibold text-text md:text-4xl">
+            <h2 className="font-serif text-3xl font-semibold text-text dark:text-gold md:text-4xl">
               The service has been held
             </h2>
             <p className="mt-4 font-sans text-base text-text-muted">
@@ -103,8 +111,57 @@ export function Countdown() {
     );
   }
 
-  if (!timeLeft) {
-    return null;
+  // Show placeholder during SSR to prevent hydration mismatch
+  if (!mounted || !timeLeft) {
+    return (
+      <section id="countdown" className="bg-bg-alt py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center">
+            <h2 className="font-serif text-3xl font-semibold text-text dark:text-gold md:text-4xl">
+              Service Countdown
+            </h2>
+            <p className="mt-2 font-sans text-base text-text-muted">
+              {siteConfig.serviceDateDisplay}
+            </p>
+            {/* Placeholder boxes */}
+            <div className="mt-8 flex justify-center gap-4 md:gap-6">
+              <div className="flex flex-col items-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-gold bg-bg-card font-serif text-2xl font-bold text-gold md:h-20 md:w-20 md:text-3xl">
+                  --
+                </div>
+                <span className="mt-2 font-sans text-xs uppercase tracking-wider text-text-muted">
+                  Days
+                </span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-gold bg-bg-card font-serif text-2xl font-bold text-gold md:h-20 md:w-20 md:text-3xl">
+                  --
+                </div>
+                <span className="mt-2 font-sans text-xs uppercase tracking-wider text-text-muted">
+                  Hours
+                </span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-gold bg-bg-card font-serif text-2xl font-bold text-gold md:h-20 md:w-20 md:text-3xl">
+                  --
+                </div>
+                <span className="mt-2 font-sans text-xs uppercase tracking-wider text-text-muted">
+                  Minutes
+                </span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-gold bg-bg-card font-serif text-2xl font-bold text-gold md:h-20 md:w-20 md:text-3xl">
+                  --
+                </div>
+                <span className="mt-2 font-sans text-xs uppercase tracking-wider text-text-muted">
+                  Seconds
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -117,7 +174,7 @@ export function Countdown() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="font-serif text-3xl font-semibold text-text md:text-4xl">
+          <h2 className="font-serif text-3xl font-semibold text-text dark:text-gold md:text-4xl">
             Service Countdown
           </h2>
           <p className="mt-2 font-sans text-base text-text-muted">
@@ -145,7 +202,7 @@ export function Countdown() {
                 <MapPin className="h-6 w-6 text-gold" />
               </div>
               <div className="flex-1">
-                <h3 className="font-serif text-xl font-semibold text-text">
+                <h3 className="font-serif text-xl font-semibold text-text dark:text-gold">
                   {siteConfig.venue.name}
                 </h3>
                 <p className="mt-1 font-sans text-base text-text-muted">

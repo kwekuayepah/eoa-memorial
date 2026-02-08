@@ -35,7 +35,7 @@ export function OrderOfService() {
             <p className="font-sans text-sm font-medium uppercase tracking-wider text-gold">
               Officiating Minister
             </p>
-            <p className="mt-2 font-serif text-xl font-semibold text-text md:text-2xl">
+            <p className="mt-2 font-serif text-xl font-semibold text-text dark:text-gold md:text-2xl">
               {siteConfig.officiant}
             </p>
           </motion.div>

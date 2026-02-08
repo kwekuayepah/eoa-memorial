@@ -9,7 +9,7 @@ export const biography: BiographyEntry[] = [
     title: "Early Life",
     icon: "Leaf",
     content:
-      "Edward Owusu-Agyei was born on 19 August 1948. He was known for his calm nature, discipline, and strong sense of responsibility. He valued unity in all things and consistently encouraged peace and togetherness within his family and among those around him.",
+      "Edward Owusu-Agyei was born on 16 August 1948. He was known for his calm nature, discipline, and strong sense of responsibility. He valued unity in all things and consistently encouraged peace and togetherness within his family and among those around him.",
   },
   {
     title: "Faith",

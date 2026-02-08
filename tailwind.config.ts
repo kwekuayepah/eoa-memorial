@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,29 +10,29 @@ const config: Config = {
     extend: {
       colors: {
         bg: {
-          DEFAULT: "#FFFDF9",
-          alt: "#FFF8F0",
-          card: "#FFFFFF",
+          DEFAULT: "var(--color-bg)",
+          alt: "var(--color-bg-alt)",
+          card: "var(--color-bg-card)",
         },
         gold: {
-          DEFAULT: "#C5A355",
-          light: "#E8D5A3",
-          dark: "#8B7235",
-          muted: "#D4C08E",
+          DEFAULT: "var(--color-gold)",
+          light: "var(--color-gold-light)",
+          dark: "var(--color-gold-dark)",
+          muted: "var(--color-gold-muted)",
         },
         rose: {
-          memorial: "#D4736C",
-          muted: "#E8B4B0",
-          deep: "#B83A3A",
+          memorial: "var(--color-red-light)",
+          muted: "var(--color-red-muted)",
+          deep: "var(--color-red)",
         },
         text: {
-          DEFAULT: "#2A2118",
-          muted: "#6B5D4F",
-          light: "#9B8E80",
+          DEFAULT: "var(--color-text)",
+          muted: "var(--color-text-muted)",
+          light: "var(--color-text-light)",
         },
         border: {
-          DEFAULT: "#E8DFD3",
-          gold: "#D4C08E",
+          DEFAULT: "var(--color-border)",
+          gold: "var(--color-border-gold)",
         },
       },
       fontFamily: {

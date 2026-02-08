@@ -33,7 +33,6 @@ export const serviceOrder: ServicePart[] = [
       { event: "Song Ministration", performer: "Dr. Peter Twum-Barimah" },
       { event: "Tributes" },
       { event: "Scripture Readings" },
-      { event: "Offertory", performer: "Transitions Choir" },
       {
         event: "Sermon",
         performer: "Very Rev. Dr. Vincent Agbemenya Adzika",

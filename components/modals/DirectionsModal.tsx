@@ -22,7 +22,7 @@ export function DirectionsModal({ isOpen, onClose }: DirectionsModalProps) {
           <div className="flex items-start gap-3">
             <MapPin className="mt-1 h-5 w-5 flex-shrink-0 text-gold" />
             <div>
-              <h3 className="font-serif text-xl font-semibold text-text">
+              <h3 className="font-serif text-xl font-semibold text-text dark:text-gold">
                 {siteConfig.venue.name}
               </h3>
               <p className="mt-1 font-sans text-base text-text-muted">

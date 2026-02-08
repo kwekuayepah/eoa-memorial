@@ -24,7 +24,7 @@ export function AccordionItem({
     <div className={cn("border-b border-border", className)}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between py-4 text-left font-serif text-xl font-semibold text-text transition-colors hover:text-gold md:text-2xl"
+        className="flex w-full items-center justify-between py-4 text-left font-serif text-xl font-semibold text-text dark:text-gold transition-colors hover:text-gold md:text-2xl"
         aria-expanded={isOpen}
         aria-controls={`accordion-content-${title}`}
       >

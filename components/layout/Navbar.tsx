@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const navLinks = [
   { label: "Order of Service", href: "#service" },
@@ -82,8 +83,8 @@ export function Navbar({
         className={cn(
           "fixed top-0 z-50 w-full transition-all duration-300",
           isScrolled
-            ? "bg-bg-card border-b border-border shadow-sm"
-            : "bg-transparent"
+            ? "bg-bg-card dark:bg-bg-card border-b border-border dark:border-border shadow-sm"
+            : "bg-transparent dark:bg-transparent"
         )}
       >
         <div className="container mx-auto px-4">
@@ -113,6 +114,7 @@ export function Navbar({
                   {link.label}
                 </button>
               ))}
+              <ThemeToggle />
             </div>
 
             {/* Mobile Menu Button */}
@@ -181,6 +183,14 @@ export function Navbar({
                     {link.label}
                   </button>
                 ))}
+                <div className="border-t border-border pt-4">
+                  <div className="flex items-center justify-between pl-4">
+                    <span className="font-sans text-base font-medium text-text-muted">
+                      Theme
+                    </span>
+                    <ThemeToggle />
+                  </div>
+                </div>
               </div>
             </motion.div>
           </>

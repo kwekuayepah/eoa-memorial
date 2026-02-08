@@ -32,13 +32,55 @@
   /* Functional */
   --color-success: #5a8a5c;
   --color-error: #c0392b;
+
+  /* Heading color (gold in dark mode, text in light mode) */
+  --color-heading: var(--color-text);
+}
+
+.dark {
+  /* Backgrounds */
+  --color-bg: #1a1612;
+  --color-bg-alt: #221d18;
+  --color-bg-card: #2a241e;
+  --color-bg-hero-overlay: rgba(10, 8, 5, 0.75);
+
+  /* Gold tones (primary accent) */
+  --color-gold: #d4b060;
+  --color-gold-light: #3d3425;
+  --color-gold-dark: #e8d5a3;
+  --color-gold-muted: #5a4e3a;
+
+  /* Red/Rose tones (secondary accent — from flowers) */
+  --color-red: #b83a3a;
+  --color-red-light: #d4736c;
+  --color-red-muted: #8a5d5a;
+
+  /* Text */
+  --color-text: #f5ede0;
+  --color-text-muted: #b8a99a;
+  --color-text-light: #8a7d6f;
+
+  /* Borders & Dividers */
+  --color-border: #3a332b;
+  --color-border-gold: #5a4e3a;
+
+  /* Functional */
+  --color-success: #6ba06d;
+  --color-error: #d94a3d;
+
+  /* Heading color (gold in dark mode) */
+  --color-heading: var(--color-gold);
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
   body {
     @apply bg-bg font-sans text-text antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }

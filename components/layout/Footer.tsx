@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-bg-alt py-12">
       <div className="container mx-auto px-4 text-center">
-        <p className="font-serif text-2xl font-semibold text-text">
+        <p className="font-serif text-2xl font-semibold text-text dark:text-gold">
           Forever in our hearts
         </p>
         <p className="mt-2 font-serif text-xl text-gold">
