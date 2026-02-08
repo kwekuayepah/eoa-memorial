@@ -55,7 +55,7 @@ export function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-bg px-4 pt-16">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-bg px-4 pt-36 md:pt-16">
       {/* Floral ornaments */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-0 top-0">
