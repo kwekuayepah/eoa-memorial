@@ -126,7 +126,7 @@ export function Hero() {
           className="max-w-2xl"
         >
           <blockquote className="font-serif text-base italic text-text-muted md:text-lg">
-            "{siteConfig.scripture.text}"
+            &ldquo;{siteConfig.scripture.text}&rdquo;
           </blockquote>
           <cite className="mt-2 block font-sans text-sm not-italic text-text-light">
             — {siteConfig.scripture.reference}

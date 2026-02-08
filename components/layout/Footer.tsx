@@ -14,7 +14,7 @@ export function Footer() {
           {siteConfig.birthDateDisplay} — {siteConfig.deathDateDisplay}
         </p>
         <p className="mt-4 font-serif text-sm italic text-text-light">
-          "{siteConfig.scripture.reference}"
+          &ldquo;{siteConfig.scripture.reference}&rdquo;
         </p>
       </div>
     </footer>
