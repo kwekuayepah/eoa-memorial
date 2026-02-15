@@ -1,12 +1,17 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+// Use server-side environment variables (without NEXT_PUBLIC_)
+// These variables will be undefined on the client, which is what we want.
+const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
 if (!supabaseUrl || !supabaseKey) {
-    // Only throw in browser/during build if these are missing and we try to use the client
-    // In development, this might happen before .env is set up
-    console.warn("Supabase credentials missing. Check .env.local");
+    // Only warn if we are on the server (window is undefined) and keys are missing
+    if (typeof window === 'undefined') {
+        console.warn("Supabase credentials missing. Check .env.local");
+    }
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+// Create the client. If keys are missing (e.g. on client), this might throw or fail gracefully depending on usage.
+// Since we only use this in server-side API routes, it should be fine.
+export const supabase = createClient(supabaseUrl || "", supabaseKey || "");

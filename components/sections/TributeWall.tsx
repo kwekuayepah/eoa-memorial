@@ -6,7 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { formatRelativeTime } from "@/lib/utils";
-import type { Tribute } from "@/lib/db";
+import type { Tribute } from "@/lib/types";
 
 export function TributeWall() {
   const [tributes, setTributes] = useState<Tribute[]>([]);

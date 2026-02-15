@@ -3,6 +3,8 @@ import { db } from "@/lib/db";
 import { supabase } from "@/lib/supabaseClient";
 import { z } from "zod";
 
+import type { Tribute } from "@/lib/types";
+
 // Simple in-memory rate limiting
 const rateLimitMap = new Map<string, number>();
 
