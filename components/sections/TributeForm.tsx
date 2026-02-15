@@ -7,7 +7,7 @@ import { z } from "zod";
 import { motion, useReducedMotion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { CheckCircle2, AlertCircle, Upload } from "lucide-react";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 
 const tributeFormSchema = z.object({
   name: z.string().min(1, "Name is required").max(100),
@@ -22,7 +22,6 @@ const tributeFormSchema = z.object({
   consent: z.boolean().refine((val) => val === true, {
     message: "You must consent to share your message with the family",
   }),
-  photo: z.any().optional(), // FileList validation handled in component
 });
 
 type TributeFormData = z.infer<typeof tributeFormSchema>;
@@ -59,7 +58,6 @@ export function TributeForm() {
   });
 
   const messageLength = watch("message")?.length || 0;
-  const photoFile = watch("photo")?.[0];
 
   const onSubmit = async (data: TributeFormData) => {
     setIsSubmitting(true);
@@ -75,9 +73,6 @@ export function TributeForm() {
       formData.append("message", data.message);
       formData.append("publishPermission", data.publishPermission);
       formData.append("consent", String(data.consent));
-      if (data.photo && data.photo[0]) {
-        formData.append("photo", data.photo[0]);
-      }
 
       const response = await fetch("/api/tributes", {
         method: "POST",
@@ -182,9 +177,8 @@ export function TributeForm() {
                   </p>
                 )}
                 <p
-                  className={`ml-auto text-sm ${
-                    messageLength > 1000 ? "text-rose-deep" : "text-text-light"
-                  }`}
+                  className={`ml-auto text-sm ${messageLength > 1000 ? "text-rose-deep" : "text-text-light"
+                    }`}
                 >
                   {messageLength} / 1000
                 </p>
@@ -225,40 +219,6 @@ export function TributeForm() {
                   {errors.publishPermission.message}
                 </p>
               )}
-            </div>
-
-            {/* Photo Upload */}
-            <div>
-              <label
-                htmlFor="photo"
-                className="mb-2 block font-sans text-sm font-medium text-text"
-              >
-                Upload Photo (Optional)
-              </label>
-              <div className="flex items-center gap-4">
-                <label
-                  htmlFor="photo"
-                  className="flex cursor-pointer items-center gap-2 rounded-md border border-border bg-bg-card px-4 py-2 font-sans text-sm text-text transition-colors hover:bg-border"
-                >
-                  <Upload className="h-4 w-4" />
-                  Choose File
-                </label>
-                <input
-                  id="photo"
-                  type="file"
-                  accept="image/*"
-                  {...register("photo")}
-                  className="hidden"
-                />
-                {photoFile && (
-                  <span className="font-sans text-sm text-text-muted">
-                    {photoFile.name}
-                  </span>
-                )}
-              </div>
-              <p className="mt-1 text-xs text-text-light">
-                Maximum file size: 5MB. Accepted formats: JPG, PNG, GIF
-              </p>
             </div>
 
             {/* Consent */}

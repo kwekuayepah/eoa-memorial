@@ -1,5 +1,4 @@
-// Simple in-memory storage for tributes (no external database needed)
-// In production, you could replace this with Vercel KV, a file-based solution, or Supabase
+import { supabase } from "@/lib/supabaseClient";
 
 export type Tribute = {
   id: string;
@@ -12,19 +11,22 @@ export type Tribute = {
   created_at: string;
 };
 
-// In-memory store (resets on server restart)
-// For production, consider using Vercel KV or a file-based solution
-const tributesStore: Tribute[] = [];
-
 export const db = {
-  async insertTribute(tribute: Omit<Tribute, "id" | "created_at">): Promise<Tribute> {
-    const newTribute: Tribute = {
-      ...tribute,
-      id: `tribute-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      created_at: new Date().toISOString(),
-    };
-    tributesStore.push(newTribute);
-    return newTribute;
+  async insertTribute(
+    tribute: Omit<Tribute, "id" | "created_at">
+  ): Promise<Tribute> {
+    const { data, error } = await supabase
+      .from("tributes")
+      .insert([tribute])
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Error inserting tribute:", error);
+      throw new Error(error.message);
+    }
+
+    return data;
   },
 
   async getTributes(options: {
@@ -32,23 +34,30 @@ export const db = {
     limit: number;
     approvedOnly?: boolean;
   }): Promise<{ tributes: Tribute[]; total: number }> {
-    let filtered = tributesStore;
+    const { page, limit, approvedOnly } = options;
+    const from = (page - 1) * limit;
+    const to = from + limit - 1;
 
-    if (options.approvedOnly) {
-      filtered = filtered.filter((t) => t.publish_approved);
+    let query = supabase
+      .from("tributes")
+      .select("*", { count: "exact" }) // count: 'exact' to get total count
+      .order("created_at", { ascending: false })
+      .range(from, to);
+
+    if (approvedOnly) {
+      query = query.eq("publish_approved", true);
     }
 
-    // Sort by created_at descending
-    filtered.sort((a, b) => 
-      new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-    );
+    const { data, error, count } = await query;
 
-    const offset = (options.page - 1) * options.limit;
-    const paginated = filtered.slice(offset, offset + options.limit);
+    if (error) {
+      console.error("Error fetching tributes:", error);
+      throw new Error(error.message);
+    }
 
     return {
-      tributes: paginated,
-      total: filtered.length,
+      tributes: (data as Tribute[]) || [],
+      total: count || 0,
     };
   },
 };
