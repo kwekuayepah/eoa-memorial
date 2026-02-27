@@ -50,6 +50,11 @@ export const galleryImages: GalleryImage[] = [
   { src: "/images/cherishedmoments/dad_adnsi.jpeg", alt: "Cherished Moment" },
   { src: "/images/cherishedmoments/dadsmmsjjs.jpeg", alt: "Cherished Moment" },
   { src: "/images/cherishedmoments/dadsmum.jpeg", alt: "Cherished Moment" },
+  { src: "/images/cherishedmoments/image.png", alt: "Cherished Moment" },
+  { src: "/images/cherishedmoments/image0.jpeg", alt: "Cherished Moment" },
+  { src: "/images/cherishedmoments/image1.jpeg", alt: "Cherished Moment" },
+  { src: "/images/cherishedmoments/image2.jpeg", alt: "Cherished Moment" },
+  { src: "/images/cherishedmoments/image3.jpeg", alt: "Cherished Moment" },
 ];
 
 export const hasGalleryPhotos = galleryImages.length > 0;
