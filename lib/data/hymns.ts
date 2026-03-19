@@ -320,5 +320,37 @@ Refrain`,
     "PHB 811": {
         title: "Hymn - Graveside",
         lyrics: `Placeholder for Graveside Hymn lyrics.`,
-    }
+    },
+    "PHB 329": {
+        title: "PHB 329 / MHB 427 - Through all the changing scenes of life",
+        lyrics: `1 Through all the changing scenes of life,
+in trouble and in joy,
+the praises of my God shall still
+my heart and tongue employ.
+
+Of his deliv'rance I will boast,
+till all that are distressed,
+from my example comfort take
+and lay their griefs to rest.
+
+2 O magnify the LORD with me,
+exalt his holy name;
+when in distress to him I called,
+he to my rescue came.
+
+The hosts of God encamp around
+the dwellings of the just;
+deliv'rance he affords to all
+who in his promise trust.
+
+3 O taste and see that he is good;
+experience will decide
+how blest are they, and only they
+who in the LORD confide.
+
+Fear him, you saints, and you will then
+have nothing else to fear;
+make serving him your sole delight,
+your wants shall be his care.`,
+    },
 };
