@@ -8,6 +8,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const navLinks = [
   { label: "Order of Service", href: "#service" },
+  { label: "Memorial Program", href: "#program" },
   { label: "Life & Legacy", href: "#biography" },
   { label: "Gallery", href: "#gallery" },
   { label: "Share a Tribute", href: "#tributes" },

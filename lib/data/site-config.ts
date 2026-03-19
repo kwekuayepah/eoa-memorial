@@ -36,6 +36,12 @@ export const siteConfig = {
   heroImage: "/images/hero/edward-owusu-agyei.jpg",
   ogImage: "/images/og-image.jpg",
 
+  // Memorial Program
+  memorialProgram: {
+    viewUrl: "https://anyflip.com/oteim/vufn/", // AnyFlip link provided by user
+    downloadPath: "/documents/The Late Edward Owusu-Agyei.pdf",
+  },
+
   // Meta
   siteUrl: "https://your-memorial.vercel.app", // update after deploy
   description:

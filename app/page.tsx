@@ -8,6 +8,7 @@ import { Biography } from "@/components/sections/Biography";
 import { PhotoGallery } from "@/components/sections/PhotoGallery";
 import { TributeForm } from "@/components/sections/TributeForm";
 import { TributeWall } from "@/components/sections/TributeWall";
+import { MemorialProgram } from "@/components/sections/MemorialProgram";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SectionDivider } from "@/components/layout/SectionDivider";
@@ -26,6 +27,8 @@ export default function Home() {
         onLivestreamClick={() => setLivestreamOpen(true)}
       />
       <Countdown />
+      <SectionDivider />
+      <MemorialProgram />
       <SectionDivider />
       <OrderOfService />
       <SectionDivider />
