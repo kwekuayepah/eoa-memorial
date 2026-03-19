@@ -6,33 +6,33 @@ export type BiographyEntry = {
 
 export const biography: BiographyEntry[] = [
   {
-    title: "Early Life",
-    icon: "Leaf",
-    content:
-      "Edward Owusu-Agyei was born on 16 August 1948. He was known for his calm nature, discipline, and strong sense of responsibility. He valued unity in all things and consistently encouraged peace and togetherness within his family and among those around him.",
-  },
-  {
-    title: "Faith",
-    icon: "Cross",
-    content:
-      "Edward was raised in the Presbyterian faith. Though private in his practice, his life reflected respect for God, moral uprightness, and principled living.",
-  },
-  {
-    title: "Professional Life",
-    icon: "Briefcase",
-    content:
-      "Edward was a businessman who approached his work with diligence and practicality. He was focused, hardworking, and committed to providing for his family. His experiences shaped a steady and thoughtful approach to life and work.",
-  },
-  {
-    title: "Education",
+    title: "Early Life & Education",
     icon: "GraduationCap",
     content:
-      "Edward pursued his university education in Holland. He valued education and exposure and believed in building a solid foundation through learning and hard work.",
+      "Mr. Edward Owusu-Agyei was born on 16th August 1948 at Kwahu Tafo in the Eastern Region of Ghana to the late Mr. Samuel Oppong Agyei and Madam Comfort Yaa Mansah, who is still alive. He was raised on strong Presbyterian Christian values which shaped his character, discipline and way of life. He began his early education at Kwahu-Tafo Presbyterian Primary School (1955-1961) and continued at Kwahu-Tafo Presbyterian Boys' Boarding School. He proceeded to Mpraeso Secondary School for both his Ordinary and Advanced Level education, and later studied at the Institute of Professional Studies, now known as the University of Professional Studies, Accra.",
+  },
+  {
+    title: "Professional Journey",
+    icon: "Briefcase",
+    content:
+      "Shortly after completing his tertiary education, Mr. Owusu-Agyei travelled to Holland where he lived and worked for a significant part of his life. Through dedication, hard work and resilience, he built a life abroad while maintaining strong ties to his Ghanaian roots. After many years overseas, he returned to Ghana to settle permanently, where he established his own business and continued to live a life centered on family, faith and service.",
+  },
+  {
+    title: "Faith & Character",
+    icon: "Cross",
+    content:
+      "Raised on Presbyterian roots, Mr. Owusu-Agyei lived a life grounded in Christian faith. His beliefs guided his relationships, work ethic and approach to life, and he remained committed to the values of integrity, humility and compassion. He will be remembered as a man of wisdom and quiet strength who touched the lives of all who encountered him through his dedication to those he loved.",
   },
   {
     title: "Family",
     icon: "Heart",
     content:
-      "Family was very important to Edward. He cared deeply about unity and maintained strong relationships with his family and everyone else he came across. He was especially devoted to his mother, who is still alive and remained close to him throughout his life. He is survived by his wife, Angelina Malm, his children Samuel Owusu-Agyei, Joycelyn Owusu-Adjei, Rita Owusu-Adjei, and Edward Owusu-Adjei, and ten grandchildren. As a husband, father, grandfather, son, and brother, he was steady, caring, and deeply committed to his family.",
+      "Mr. Edward Owusu-Agyei was married to Angelina Malm, with whom he built a loving and close-knit family. He was blessed with four children: Samuel Owusu-Agyei, Joycelyn Owusu-Adjei, Rita Owusu-Adjei and Edward Owusu-Adjei. He was a devoted husband and father who valued family deeply and took pride in the growth and success of his children.",
+  },
+  {
+    title: "Legacy",
+    icon: "Leaf",
+    content:
+      "Mr. Edward Owusu-Agyei will be remembered as a hardworking, resilient and family-oriented man whose life journey inspired many. His legacy lives on through the family he nurtured and the values he instilled in generations after him. He is survived by his beloved wife Angelina Malm, his four children, ten grandchildren, one great-grandchild, his mother, extended family and many relatives and loved ones who will forever cherish his memory.",
   },
 ];
