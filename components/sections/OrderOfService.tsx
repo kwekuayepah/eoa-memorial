@@ -1,14 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Music } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { Badge } from "@/components/ui/Badge";
 import { siteConfig } from "@/lib/data/site-config";
 import { serviceOrder } from "@/lib/data/service-order";
+import { hymnsData } from "@/lib/data/hymns";
+import { HymnModal } from "@/components/modals/HymnModal";
 
 export function OrderOfService() {
   const prefersReducedMotion = useReducedMotion();
+  const [selectedHymn, setSelectedHymn] = useState<{ title: string; lyrics: string } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleHymnClick = (detail: string) => {
+    // Basic extraction of PHB numbers. Handle cases where multiple are present (e.g., PHB 10 / PHB 557)
+    const matches = detail.match(/PHB\s+\d+/g);
+    if (matches && matches.length > 0) {
+      const hymnKey = matches[0]; // Take the first match for now
+      if (hymnsData[hymnKey]) {
+        setSelectedHymn(hymnsData[hymnKey]);
+        setIsModalOpen(true);
+      }
+    }
+  };
 
   return (
     <section id="service" className="bg-bg py-16 px-4">
@@ -74,9 +93,8 @@ export function OrderOfService() {
                     {part.items.map((item, index) => (
                       <div
                         key={index}
-                        className={`flex items-start gap-4 border-l-4 border-gold-muted py-3 pl-4 ${
-                          index % 2 === 0 ? "bg-bg-alt" : "bg-bg"
-                        }`}
+                        className={`flex items-start gap-4 border-l-4 border-gold-muted py-3 pl-4 ${index % 2 === 0 ? "bg-bg-alt" : "bg-bg"
+                          }`}
                       >
                         <div className="flex-shrink-0">
                           <div className="h-2 w-2 rounded-full bg-gold" />
@@ -87,7 +105,16 @@ export function OrderOfService() {
                               {item.event}
                             </span>
                             {item.detail && (
-                              <Badge variant="gold">{item.detail}</Badge>
+                              <Badge
+                                variant="gold"
+                                className={cn(
+                                  item.detail.includes("PHB") && "cursor-pointer hover:bg-gold hover:text-bg transition-colors"
+                                )}
+                                onClick={() => item.detail && handleHymnClick(item.detail)}
+                              >
+                                {item.detail.includes("PHB") && <Music className="mr-1 h-3 w-3 inline" />}
+                                {item.detail}
+                              </Badge>
                             )}
                           </div>
                           {item.performer && (
@@ -105,6 +132,12 @@ export function OrderOfService() {
           </motion.div>
         </motion.div>
       </div>
+
+      <HymnModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        hymn={selectedHymn}
+      />
     </section>
   );
 }
